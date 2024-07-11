@@ -1,0 +1,204 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-color: rgb(202, 193, 210);
+        }
+        .container {
+            margin-left: 35%;
+            position: absolute;
+
+        }
+        .big {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 250px;
+        }
+        .little-flex {
+            color: white;
+            display: flex;
+            background-color: rgba(137, 43, 226, 0.614);
+            width: 400px;
+            height: 30px;
+            align-items: center;
+            gap: 135px;
+        }
+        .little-flex button {
+            background-color: transparent;
+            color: white;
+            border: none;
+        }
+        .big-flex {
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(255, 255, 255);
+            width: 300px;
+            padding-left: 100px;
+            gap: 10px;
+            position: relative;
+        }
+        .big-flex label:first-child{
+            margin-top: 10px;
+        }
+        .big-flex label:last-child{
+            margin-bottom: 10px;
+        }
+        
+        .new button {
+            margin-left: 50px;
+            background-color: rgba(137, 43, 226, 0.614);
+            border-radius: 10px;
+            position: relative;
+            width: 100px;
+            height: 40px;
+            border: none;
+            color: white;
+        }
+        .new button:hover {
+            background-color: blueviolet;
+        }
+        .little-flex button:hover {
+            background-color: blueviolet;
+        }
+        .popup{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+           
+        }
+        .popup.hide {  
+            
+            width: 400px;
+            height: 300px; 
+            background-color: rgb(210, 191, 167);
+            margin-left: 40%;
+            margin-top: 10%;
+            position: absolute;
+            
+        }
+        .bigpop{
+            display: none;
+           
+        }
+        .bigpop button {
+        position: relative;
+        margin-left: 1120px;
+        margin-top: 450px;
+        height: 40px;
+        }
+        .bigpop input {
+            height: 50px;
+            border-radius: 20px;
+            border-width: none;
+            border-color: grey;
+        }
+        .bigpop label{
+            color: white;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+   
+    <div class="container">
+        <div class="big" id="big">
+            <div class="little-flex">
+                <button id="list-button">=</button>
+                <div>Website todo</div>
+            </div>
+            <div class="big-flex" id="listBig">
+                <label><input type="checkbox" name="activity" value="StyleGuide Creation">StyleGuide Creation</label>
+                <label><input type="checkbox" name="activity" value="Send Wirefraames">Send Wireframes</label>
+                <label><input type="checkbox" name="activity" value="Readability About Page">Readability About Page</label>
+                <label><input type="checkbox" name="activity" value="Check Color Contrast">Check Color Contrast</label>
+                
+            </div>
+            <form class="button-plus" id="form">
+                <div class="new"><button id="btn" type="submit">+ New Task</button></div>
+            </form>
+        </div>
+        <div>
+            
+        </div>
+    </div>
+    <div>
+        <form class="bigpop" id="bigpop">
+        <label class="popup hide">What Do u want to do list?<input type="text" name="inputText" placeholder="Input Text Here"></label>
+        <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+        const listBig = document.getElementById("listBig")
+        const btn = document.getElementById("btn")
+        const form = document.getElementById("form")
+        // const listData = '["styleGuide Creation", "SendWireFrames", "Readability About Page","check Color Contrast"]'
+        const bigpop = document.getElementById("bigpop")
+        // window.localStorage.setItem("data", listData)
+        const data = JSON.parse(window.localStorage.getItem("data"))
+        console.log(data[1])
+        console.log(data[3])
+       
+            
+            // const label = document.createElement("label")
+            // const input = document.createElement("input")
+            // input.setAttribute("type"   , "checkbox")
+            // label.textContent = data[0]
+            // listBig.appendChild(input)
+            // listBig.appendChild(label)  
+
+            // const label2 = document.createElement("label")
+            // const input2 = document.createElement("input")
+
+            form.addEventListener("submit" (){
+                bigpop.addEventListener.classList.toogle("click", block)
+            })
+
+
+            
+        
+
+        
+        // listData.foreach((item) => {
+            
+        // })
+
+
+
+
+
+
+
+
+        // window.localStorage.setItem("nama", "isi" )
+        // const data = JSON.parse(window.localStorage.getItem('skills'))
+        // // window.localStorage.setItem('skills', 'abc')
+        // // window.localStorage.setItem('token2', 'abc')
+        // // const token = window.localStorage.getItem("token2") //string
+        // // console.log(token)
+        // console.log(typeof window.localStorage.getItem("skills"))
+        // const str = '["a", "b", "c"]'
+        // const strParsed = JSON.parse(str)
+        // console.log(strParsed)
+
+
+        // const skills = ["programming", "gaming"]
+        // window.localStorage.setItem("skil", skills )
+        // console.log(window.localStorage.getItem("skil"))
+
+
+        // data.foreach(item =>{
+        //     const listBig = document.createElement("div")
+        //     const list1 = document.createElement("input")
+            
+        //     const list2 = document.createElement("div")
+        //     const list3 = document.createElement("div")
+        // })
+
+    </script>
+</body>
+</html>

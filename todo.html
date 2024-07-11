@@ -11,37 +11,45 @@
         .container {
             margin-left: 35%;
             position: absolute;
-
+            margin-top: 200px;
         }
         .big {
             display: flex;
             flex-direction: column;
             gap: 10px;
-            margin-top: 250px;
         }
         .little-flex {
             color: white;
             display: flex;
             background-color: rgba(137, 43, 226, 0.614);
-            width: 400px;
-            height: 30px;
+            width: 500px;
+            height: 70px;
             align-items: center;
-            gap: 135px;
+            gap: 110px;
+            font-size: 20px;
         }
         .little-flex button {
             background-color: transparent;
             color: white;
             border: none;
+            width: 70px;
+            height: 70px;
+            font-size: 60px;
         }
         .big-flex {
             display: flex;
             flex-direction: column;
             background-color: rgb(255, 255, 255);
-            width: 300px;
+            width: 400px;
             padding-left: 100px;
-            gap: 10px;
+            gap: 20px;
             position: relative;
+            font-size: 20px;
         }
+        .big-flex label input {
+        }
+        
+        
         .big-flex label:first-child{
             margin-top: 10px;
         }
@@ -49,8 +57,8 @@
             margin-bottom: 10px;
         }
         
-        .new button {
-            margin-left: 50px;
+        .big form button {
+            margin-left: 140px;
             background-color: rgba(137, 43, 226, 0.614);
             border-radius: 10px;
             position: relative;
@@ -59,7 +67,7 @@
             border: none;
             color: white;
         }
-        .new button:hover {
+        .button-plus button:hover {
             background-color: blueviolet;
         }
         .little-flex button:hover {
@@ -71,24 +79,38 @@
             justify-content: center;
            
         }
-        .popup.hide {  
-            
-            width: 400px;
-            height: 300px; 
-            background-color: rgb(210, 191, 167);
-            margin-left: 40%;
-            margin-top: 10%;
-            position: absolute;
+        .button-plus{
+            display: flex;
+            justify-content: center;
+            position: relative;
+            top: -20;
+        }
+        .button-plus button {
+            width: 150px;
+            height: 50px;
+            border-radius: 20px;
+            background-color: rgba(137, 43, 226, 0.614);
+            color: white;
+            font-size: 20px;
+        }
+        .hide {  
+            display: none;
             
         }
         .bigpop{
-            display: none;
+        width: 500px;
+        height: 200px; 
+        background-color: rgb(210, 191, 167);
+        margin-left: 35%;
+        margin-top: 13%;
+        position: absolute;
+        border-radius: 20px;
            
         }
         .bigpop button {
         position: relative;
-        margin-left: 1120px;
-        margin-top: 450px;
+        margin-left: 200px;
+        margin-top: 100px;
         height: 40px;
         }
         .bigpop input {
@@ -112,23 +134,22 @@
                 <div>Website todo</div>
             </div>
             <div class="big-flex" id="listBig">
-                <label><input type="checkbox" name="activity" value="StyleGuide Creation">StyleGuide Creation</label>
-                <label><input type="checkbox" name="activity" value="Send Wirefraames">Send Wireframes</label>
-                <label><input type="checkbox" name="activity" value="Readability About Page">Readability About Page</label>
-                <label><input type="checkbox" name="activity" value="Check Color Contrast">Check Color Contrast</label>
-                
+                    <label><input type="checkbox" name="activity" value="StyleGuide Creation">StyleGuide Creation</label>
+                    <label><input type="checkbox" name="activity" value="Send Wirefraames">Send Wireframes</label>
+                    <label><input type="checkbox" name="activity" value="Readability About Page">Readability About Page</label>
+                    <label><input type="checkbox" name="activity" value="Check Color Contrast">Check Color Contrast</label>
+                </div>
+            <div class="button-plus" id="form">
+                <button id="btn" type="submit" name="submit">+ New Task</button>
             </div>
-            <form class="button-plus" id="form">
-                <div class="new"><button id="btn" type="submit">+ New Task</button></div>
-            </form>
         </div>
         <div>
             
         </div>
     </div>
     <div>
-        <form class="bigpop" id="bigpop">
-        <label class="popup hide">What Do u want to do list?<input type="text" name="inputText" placeholder="Input Text Here"></label>
+        <form class="bigpop hide" id="bigpop">
+        <label class="popup">What Do u want to do list?<input type="text" name="inputText" placeholder="Input Text Here"></label>
         <button type="submit">Submit</button>
         </form>
     </div>
@@ -140,8 +161,8 @@
         const bigpop = document.getElementById("bigpop")
         // window.localStorage.setItem("data", listData)
         const data = JSON.parse(window.localStorage.getItem("data"))
-        console.log(data[1])
-        console.log(data[3])
+        // console.log(data[1])
+        // console.log(data[3])
        
             
             // const label = document.createElement("label")
@@ -154,8 +175,8 @@
             // const label2 = document.createElement("label")
             // const input2 = document.createElement("input")
 
-            form.addEventListener("submit" (){
-                bigpop.addEventListener.classList.toogle("click", block)
+            btn.addEventListener("click", () => {
+                bigpop.classList.toggle('hide')
             })
 
 

@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -137,11 +138,11 @@
                 <button id="list-button">=</button>
                 <div>Website todo</div>
             </div>
-            <div class="big-flex" id="listBig">
-                    <label>StyleGuide Creation<input type="checkbox" name="activity" value="StyleGuide Creation"></label>
+            <div class="big-flex" id="listbig">
+                    <!-- <label>StyleGuide Creation<input type="checkbox" name="activity" value="StyleGuide Creation"></label>
                     <label>Send Wireframes<input type="checkbox" name="activity" value="Send Wirefraames"></label>
                     <label>Readability About Page<input type="checkbox" name="activity" value="Readability About Page"></label>
-                    <label>Check Color Contrast<input type="checkbox" name="activity" value="Check Color Contrast"></label>
+                    <label>Check Color Contrast<input type="checkbox" name="activity" value="Check Color Contrast"></label> -->
                 </div>
             <div class="button-plus" id="form">
                 <button id="btn" type="submit" name="submit">+ New Task</button>
@@ -151,78 +152,95 @@
             
         </div>
     </div>
-    <div>
         <form class="bigpop hide" id="bigpop">
-        <label class="popup">Please enter your task list here<input type="text" name="inputText" placeholder="Input Text Here"></label>
-        <button type="submit">Submit</button>
+        <label class="popup">Please enter your task list here<input type="text" name="text" id="inputpop" placeholder="Input Text Here"></label>
+        <button type="submit" name="submit" id="btn2">Submit</button>
         </form>
-    </div>
     <script>
-        const listBig = document.getElementById("listBig")
+        const listbig = document.getElementById("listbig")
         const btn = document.getElementById("btn")
         const form = document.getElementById("form")
-        const listData = '["styleGuide Creation", "SendWireFrames", "Readability About Page","check Color Contrast"]'
+        // const listData = '["styleGuide Creation", "SendWireFrames", "Readability About Page","check Color Contrast"]'
         const bigpop = document.getElementById("bigpop")
-        window.localStorage.setItem("data", listData)
-        const data = JSON.parse(window.localStorage.getItem("data"))
+        // window.localStorage.setItem("data", listData)
+        const btn2 = document.getElementById("btn2")
         // console.log(data[1])
         // console.log(data[3])
+        
         btn.addEventListener("click", () => {
             bigpop.classList.toggle('hide')
             })
             
-            const label = document.createElement("label")
-            const input = document.createElement("input")
-            input.setAttribute("type"   , "checkbox")
-            label.textContent = data[0] 
-            listBig.appendChild(label)
-            listBig.appendChild(input)  
+            // const label = document.createElement("label")
+            // const input = document.createElement("input")
+            // input.setAttribute("type"   , "checkbox")
+            // label.textContent = data[0] 
+            // label.appendChild(input)
+            // listbig.appendChild(label)  
 
             // const label2 = document.createElement("label")
             // const input2 = document.createElement("input")
             
-            list = [
+            let list = [
                     {
                         text : "StyleGuide Creation",
-                        cek : true,
+                        finish : true,
                     },
                     {
                         text : "SendWireframes",
-                        cek : true,
+                        finish : true,
                     },
                     {
                         text : "Readability About Page",
-                        cek : true,
+                        finish : true,
                     },
                     {
                         text : "Check Color Contrast",
-                        cek : true,
+                        finish : true,
                     },
                 
             ]
-            
-            
+
+        //ubah menjadi form pengambil data (bigpop)      
+        bigpop.addEventListener("submit", (event) => {
+        event.preventDefault()
+        console.log("test....")
+           
+            const inputpop = event.target.text.value
+            list.push({
+                text : inputpop,
+                finish : true,
+            })
+            console.log(list)
+            dataFungsi()
+        })
+
             function dataFungsi() {
+                listbig.innerHTML = ''
                 list.forEach((item, index) =>{
-                
                 const label = document.createElement("label")
                 const input = document.createElement("input")
-                input.setAttribute("type"   , "checkbox")
+                input.setAttribute("type", "checkbox")
                 input.type = "checkbox"
                 input.id = "cek" + index + 1
                 if (item.checked) {
-                    input.checked = true
+                    input.checked = true    
                 }
                 label.textContent = item.text
+                label.htmlFor = input.id
                 label.appendChild(input)
-                listBig.appendChild(label)
+                listbig.appendChild(label)
                 
                 })  
+               
             }
-            dataFungsi()
-           
-
-
+            
+            btn.addEventListener("click", () => {
+            bigpop.classList.toggle('block')
+            
+            })
+           dataFungsi()
+         
             
 
 
@@ -258,7 +276,7 @@
 
 
         // data.foreach(item =>{
-        //     const listBig = document.createElement("div")
+        //     const listbig = document.createElement("div")
         //     const list1 = document.createElement("input")
             
         //     const list2 = document.createElement("div")

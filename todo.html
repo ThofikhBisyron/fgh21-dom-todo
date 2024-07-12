@@ -23,7 +23,7 @@
             color: white;
             display: flex;
             background-color: rgba(137, 43, 226, 0.614);
-            width: 500px;
+            width: 520px;
             height: 70px;
             align-items: center;
             gap: 110px;
@@ -41,13 +41,16 @@
             display: flex;
             flex-direction: column;
             background-color: rgb(255, 255, 255);
-            width: 400px;
-            padding-left: 100px;
+            width: 450px;
+            padding-left: 50px;
+            padding-right: 20px;
             gap: 20px;
             position: relative;
             font-size: 20px;
         }
-        .big-flex label input {
+        .big-flex label{
+            display: flex;
+            justify-content: space-between;
         }
         
         
@@ -100,7 +103,7 @@
             
         }
         .bigpop{
-        width: 500px;
+        width: 520px;
         height: 200px; 
         background-color: rgb(195, 94, 228);
         margin-left: 35%;
@@ -109,10 +112,14 @@
         border-radius: 20px;
            
         }
+        .flex-button {
+            display: flex;
+            margin-top: 30px;
+            gap: 30px;
+        }
         .bigpop button {
         position: relative;
-        margin-left: 200px;
-        margin-top: 50px;
+   
         height: 40px;
         border-radius: 20px;
         background-color: rgb(132, 0, 255);
@@ -154,11 +161,15 @@
     </div>
         <form class="bigpop hide" id="bigpop">
         <label class="popup">Please enter your task list here<input type="text" name="text" id="inputpop" placeholder="Input Text Here"></label>
+        <div class="flex-button">
         <button type="submit" name="submit" id="btn2">Submit</button>
+        <!-- <button type="submit" name="submit" id="btn3">Close</button> -->
+        </div>
         </form>
     <script>
         const listbig = document.getElementById("listbig")
         const btn = document.getElementById("btn")
+        const btn3 = document.getElementById("btn3")
         const form = document.getElementById("form")
         // const listData = '["styleGuide Creation", "SendWireFrames", "Readability About Page","check Color Contrast"]'
         const bigpop = document.getElementById("bigpop")
@@ -168,9 +179,11 @@
         // console.log(data[3])
         
         btn.addEventListener("click", () => {
-            bigpop.classList.toggle('hide')
-            })
-            
+            bigpop.classList.toggle('hide') 
+
+        })
+        
+        
             // const label = document.createElement("label")
             // const input = document.createElement("input")
             // input.setAttribute("type"   , "checkbox")
@@ -200,19 +213,21 @@
                     },
                 
             ]
+            const listlocal = localStorage.getItem("list")
+            if(listlocal !== null) {
+                list = JSON.parse(listlocal)
+            }
 
-        //ubah menjadi form pengambil data (bigpop)      
         bigpop.addEventListener("submit", (event) => {
         event.preventDefault()
-        console.log("test....")
            
             const inputpop = event.target.text.value
             list.push({
                 text : inputpop,
                 finish : true,
             })
-            console.log(list)
             dataFungsi()
+            window.localStorage.setItem("list", JSON.stringify(list))
         })
 
             function dataFungsi() {
@@ -236,9 +251,9 @@
             }
             
             btn.addEventListener("click", () => {
-            bigpop.classList.toggle('block')
-            
+            bigpop.classList.toggle('block') 
             })
+
            dataFungsi()
          
             

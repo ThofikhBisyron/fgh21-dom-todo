@@ -48,6 +48,9 @@
             position: relative;
             font-size: 20px;
         }
+        .hidebig {
+            display : flex;
+        }
         .big-flex label{
             display: flex;
             justify-content: space-between;
@@ -145,7 +148,7 @@
                 <button id="list-button">=</button>
                 <div>Website todo</div>
             </div>
-            <div class="big-flex" id="listbig">
+            <div class="big-flex hidebig" id="listbig">
                     <!-- <label>StyleGuide Creation<input type="checkbox" name="activity" value="StyleGuide Creation"></label>
                     <label>Send Wireframes<input type="checkbox" name="activity" value="Send Wirefraames"></label>
                     <label>Readability About Page<input type="checkbox" name="activity" value="Readability About Page"></label>
@@ -161,12 +164,13 @@
     </div>
         <form class="bigpop hide" id="bigpop">
         <label class="popup">Please enter your task list here<input type="text" name="text" id="inputpop" placeholder="Input Text Here"></label>
-        <div class="flex-button">
+        <div class="fle x-button">
         <button type="submit" name="submit" id="btn2">Submit</button>
-        <!-- <button type="submit" name="submit" id="btn3">Close</button> -->
+        <button type="button" name="submit" id="btn3">Close</button>
         </div>
         </form>
     <script>
+        const listbutton  = document.getElementById("list-button")
         const listbig = document.getElementById("listbig")
         const btn = document.getElementById("btn")
         const btn3 = document.getElementById("btn3")
@@ -180,10 +184,15 @@
         
         btn.addEventListener("click", () => {
             bigpop.classList.toggle('hide') 
-
         })
-        
-        
+        btn3.addEventListener("click", (event) => {
+        event.preventDefault()
+            bigpop.classList.toggle('hide')
+        })
+        listbutton.addEventListener("click", () => {
+            listbig.classList.toggle('hide')
+        })
+
             // const label = document.createElement("label")
             // const input = document.createElement("input")
             // input.setAttribute("type"   , "checkbox")
